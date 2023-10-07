@@ -9,15 +9,21 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 
 import { Link, Outlet } from 'react-router-dom';
+import  dayjs  from 'dayjs';
+
+
+import  {LocalizationProvider}  from '@mui/x-date-pickers/LocalizationProvider';
+import  {AdapterDayjs}  from '@mui/x-date-pickers/AdapterDayjs'
+
+import  {DatePicker}  from '@mui/x-date-pickers/DatePicker';
 
 
 
 
-
-//
 
 function App() {
 
+  
   const [todo, setTodo] = React.useState({
     description: '',
     date: '',
@@ -40,7 +46,9 @@ function App() {
   
 
   const addTodo = () => {
-    setTodos([...todos, todo]);
+    const formattedDate = dayjs(todo.date).format('MM/DD/YYYY');
+
+    setTodos([...todos, {...todo, date: formattedDate}]);
     setTodo({description: '', date: '', priority: ''});
   }
 
@@ -86,11 +94,13 @@ function App() {
         onChange = {e => setTodo({...todo, priority: e.target.value})} 
         />
 
-        <TextField 
-        label='Date'
-        value={todo.date}
-        onChange = {e => setTodo({...todo, date: e.target.value})} 
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DatePicker
+          value={todo.date}
+          onChange={(date) => setTodo({...todo, date})}
         />
+        </LocalizationProvider>
+
         <Button variant='contained' onClick={addTodo}>Add Todo</Button>
         <Button variant='contained' color='error' onClick={deleteTodo}>Delete</Button>
       </Stack>
