@@ -11,15 +11,11 @@ import Stack from '@mui/material/Stack';
 import { Link, Outlet } from 'react-router-dom';
 import  dayjs  from 'dayjs';
 
-
 import  {LocalizationProvider}  from '@mui/x-date-pickers/LocalizationProvider';
 import  {AdapterDayjs}  from '@mui/x-date-pickers/AdapterDayjs'
-
 import  {DatePicker}  from '@mui/x-date-pickers/DatePicker';
 
-
-
-
+  
 
 function App() {
 
@@ -67,9 +63,9 @@ function App() {
 
       <div className="App">
         <nav>
-          <Link to={"/"}>Home</Link>
-          <Link to={"/about"}>About</Link>
-          <Link to={"/contact"}>Contact</Link>
+          <Link to={"/todolist/"}>Home</Link>
+          <Link to={"/todolist/about"}>About</Link>
+          <Link to={"/todolist/contact"}>Contact</Link>
         </nav>
           <Outlet />
       </div>
