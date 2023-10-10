@@ -8,7 +8,7 @@ import  Button  from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 
-import { Link, Outlet } from 'react-router-dom';
+//import { Link, Outlet } from 'react-router-dom';
 import  dayjs  from 'dayjs';
 
 import  {LocalizationProvider}  from '@mui/x-date-pickers/LocalizationProvider';
@@ -61,14 +61,13 @@ function App() {
   return (
     <Container>
 
-      <div className="App">
+{/*<div className="App">
         <nav>
           <Link to={"/todolist/"}>Home</Link>
-          <Link to={"/todolist/about"}>About</Link>
-          <Link to={"/todolist/contact"}>Contact</Link>
+          <Link to={"/todolist/table"}>todotable</Link>
         </nav>
           <Outlet />
-      </div>
+  </div> */}
 
 
       
