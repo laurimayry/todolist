@@ -6,7 +6,7 @@ function Header(){
     return(
         <AppBar position="static">
             <Toolbar>
-                <Typography variant="h6">My Todos</Typography>
+                <Typography variant="h6">My Todolist</Typography>
             </Toolbar>
         </AppBar>
 

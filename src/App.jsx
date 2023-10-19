@@ -58,6 +58,10 @@ function App() {
     }
   }
 
+  const clearTodos = () => {
+    setTodos([]);
+  }
+
   return (
     <Container>
 
@@ -89,8 +93,11 @@ function App() {
         onChange = {e => setTodo({...todo, priority: e.target.value})} 
         />
 
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <LocalizationProvider 
+        dateAdapter={AdapterDayjs}
+        >
         <DatePicker
+          placeholder="MM/DD/YYYY"
           value={todo.date}
           onChange={(date) => setTodo({...todo, date})}
         />
@@ -98,10 +105,15 @@ function App() {
 
         <Button variant='contained' onClick={addTodo}>Add Todo</Button>
         <Button variant='contained' color='error' onClick={deleteTodo}>Delete</Button>
+        <Button variant='contained' onClick={clearTodos}>Clear</Button>
+
       </Stack>
 
-      <Stack alignItems= 'center'
-            justifyContent= 'center'>
+      <Stack
+            alignItems= 'center'
+            justifyContent= 'center'
+            title='table'
+            >
       <div className='ag-theme-material 'style={{width: 600, height: 500}} >
         <AgGridReact 
           ref={gridRef}
